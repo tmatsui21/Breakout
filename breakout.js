@@ -78,9 +78,20 @@ if (canvas && typeof(canvas.getContext) === 'function'){
     paddle.draw('blue');
     
     timer = setInterval(function() { ball.move(); }, 1000/30);
+    
+    canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        paddle.clear();
+        paddle.x = e.touches[0].pageX - canvas.offsetLeft - 50;
+        paddle.draw('blue');
+    }, false);
+    canvas.addEventListener('mousemove', function(e) {
+        e.preventDefault();
+        paddle.clear();
+        paddle.x = e.offsetX - 50;
+        paddle.draw('blue');
+    }, false);
 }
-canvas.addEventListener("touchstart", function(e) { paddle.clear(); paddle.x = e.touches[0].pageX - 50; paddle.draw('blue'); }, false);
-canvas.addEventListener("mousemove", function(e) { paddle.clear(); paddle.x = e.offsetX - 50; paddle.draw('blue'); }, false);
 
 // functions
 function stop() {
