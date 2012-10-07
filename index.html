@@ -7,17 +7,20 @@
 	body {
 	    text-align: center;
 	}
-	canvas {
+	canvas{
+	    position: absolute;
+	    left: 50%;
+	    margin-left:-150px;
 	    display: block;
-	    margin: auto;
             border: 1px solid black;
-	    background-color: lightgrey;
 	}
     </style>
 </head>
 <body>
     <h2>Breakout</h2>
-    <canvas id="canvas" width="300" height="400">Canvas非対応</canvas>
+    <canvas id="canvas" width="300" height="400" style="background-color: lightgrey; z-index: 0;">Canvas非対応</canvas>
+    <canvas id="canvas2" width="300" height="400" style="z-index: 1;">Canvas非対応</canvas>
+    <p style="height: 400px;"></p>
     <button onclick="stop();">停止/再開</button>
     <script src="breakout.js"></script>
 </body>
